@@ -1,5 +1,1 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Pipeables</h1>
-
-<%= react_component 'PipeablesTable', data: @pipeables %>
+<%= react_component 'Pipeables', data: @pipeables, url: 'pipeables.json', pollInterval: 2000 %>

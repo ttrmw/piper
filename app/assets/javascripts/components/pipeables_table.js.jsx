@@ -1,6 +1,7 @@
 var PipeablesTable = React.createClass({
   render: function() {
-    var pipeableNodes = this.props.data.map(function (pipeable) {
+
+    var pipeableRows = this.props.data.map(function (pipeable) {
       return (
         <PipeableRow name={pipeable.name} state={pipeable.state}></PipeableRow>
       )
@@ -9,7 +10,7 @@ var PipeablesTable = React.createClass({
       <div>
         <h2>Pipeables</h2>
         <table className="pipeables">
-          {pipeableNodes}
+          {pipeableRows}
         </table>
       </div>
     );
