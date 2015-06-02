@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @pipeable.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pipeable.description %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @pipeable.state %>
+</p>
+
+<%= link_to 'Edit', edit_pipeable_path(@pipeable) %> |
+<%= link_to 'Back', pipeables_path %>
