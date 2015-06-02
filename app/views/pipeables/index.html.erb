@@ -2,30 +2,4 @@
 
 <h1>Listing Pipeables</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>State</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pipeables.each do |pipeable| %>
-      <tr>
-        <td><%= pipeable.name %></td>
-        <td><%= pipeable.description %></td>
-        <td><%= pipeable.state %></td>
-        <td><%= link_to 'Show', pipeable %></td>
-        <td><%= link_to 'Edit', edit_pipeable_path(pipeable) %></td>
-        <td><%= link_to 'Destroy', pipeable, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Pipeable', new_pipeable_path %>
+<%= react_component 'PipeablesTable', data: @pipeables %>
