@@ -3,13 +3,13 @@ var PipeableForm = React.createClass({
     e.preventDefault();
     var name = React.findDOMNode(this.refs.name).value.trim();
     var description = React.findDOMNode(this.refs.description).value.trim();
-    if (!name || !author) {
+    if (!name || !description) {
       return;
     }
 
     this.props.onPipeableSubmit( {name: name, description: description} );
-    React.findDOMNode(this.refs.author).value = '';
-    React.findDOMNode(this.refs.text).value= '';
+    React.findDOMNode(this.refs.name).value = '';
+    React.findDOMNode(this.refs.description).value= '';
     return;
   },
   render: function() {

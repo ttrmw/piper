@@ -29,7 +29,7 @@ class PipeablesController < ApplicationController
     respond_to do |format|
       if @pipeable.save
         format.html { redirect_to @pipeable, notice: 'Pipeable was successfully created.' }
-        format.json { render :show, status: :created, location: @pipeable }
+        format.json { render :json => index, status: :created, location: @pipeable }
       else
         format.html { render :new }
         format.json { render json: @pipeable.errors, status: :unprocessable_entity }
