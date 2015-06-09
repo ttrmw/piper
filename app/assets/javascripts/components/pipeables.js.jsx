@@ -30,17 +30,32 @@ var Pipeables = React.createClass({
 
   handlePipeableSubmit: function(pipeable) {
     $.ajax({
-    url: this.props.url,
-    dataType: 'json',
-    type: 'POST',
-    data: { pipeable: pipeable },
-    success: function(data) {
-      this.setState( { data: data } );
-    }.bind(this),
-    error: function(xhr, status, err) {
-      console.error(this.props.url, status, err.toString());
-    }.bind(this)
+      url: this.props.url,
+      dataType: 'json',
+      type: 'POST',
+      data: { pipeable: pipeable },
+      success: function(data) {
+        this.setState( { data: data } );
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
     });
+  },
+
+  handlePipeableUpdateState: function(pipeable) {
+    $.ajax({
+      url: this.props.url,
+      dataType: 'json',
+      type: 'PATCH',
+      data: { pipeable: pipeable },
+      success: function(data) {
+        this.setState( { data: data } );
+      }.bind(this),
+      error: function(xhr, status, err ) {
+        console.error(this.props.url, status, err.toString());
+      }.bind(this)
+    })
   },
 
   getInitialState: function() {
@@ -53,40 +68,11 @@ var Pipeables = React.createClass({
     setInterval(this.loadPipeablesFromServer, this.props.pollInterval);
   },
 
-  onDragStart: function(drag_item) {
-    this.setState( { currentDragItem: drag_item } );
-  },
-
-  onDragStop: function() {
-    this.setState( { currentDragItem: null } );
-  },
-
-  onDrop: function(target) {
-    this.setState(
-      {
-        lastDrop: {
-          source: this.state.currentDragItem,
-          target: target
-        }
-      }
-    );
-  },
-
-  dropDescription: function() {
-    if (drop == this.state.lastDrop) {
-      return (
-        <p className="drop-description">
-          {'Dropped source ' + drop.source.type + '-' + drop.source.index + ' on target ' + drop.target.index}
-        </p>
-      );
-    }
-  },
-
   render: function() {
     return (
       <div class="pipeables">
-        <PipeablesTable data={this.state.data} states={this.state.states} />
         <PipeableForm onPipeableSubmit={this.handlePipeableSubmit} />
+        <PipeablesTable data={this.state.data} states={this.state.states} />
       </div>
     );
   }

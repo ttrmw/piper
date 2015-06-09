@@ -1,9 +1,20 @@
 var PipeableRow = React.createClass({
   render: function() {
+    var row_name = this.props.name;
+    var row_id = this.props.id;
+    var row_state = this.props.state;
     return (
+
       <tr className="pipeableRow">
-        <td>{this.props.name}</td>
-        <td>{this.props.state}</td>
+
+        {this.props.states.map(
+          function(state) {
+            return(
+              <td ref={state}> {state == row_state ? <PipeableCell id={row_id} state={row_state} name={row_name}/>: '' } </td>
+            );
+          }
+        )}
+
       </tr>
     );
   }

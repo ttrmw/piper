@@ -4,7 +4,7 @@ var PipeablesTable = React.createClass({
     var pipeableRows = this.props.data.map(
       function (pipeable) {
         return (
-          <PipeableRow name={pipeable.name} state={pipeable.state} states={states}/>
+          <PipeableRow id={pipeable.id} name={pipeable.name} state={pipeable.state} states={states}/>
         );
       }
     );
