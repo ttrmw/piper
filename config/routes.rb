@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pipeables/states', to: 'pipeables#states'
   resources :pipeables
 
   root 'pipeables#index'

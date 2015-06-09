@@ -7,6 +7,12 @@ class PipeablesController < ApplicationController
     @pipeables = Pipeable.all
   end
 
+  def states
+    @states = Pipeable.states
+    respond_to do |format|
+      format.json { render :json => @states.map { |k, v| k } }
+    end
+  end
   # GET /pipeables/1
   # GET /pipeables/1.json
   def show
