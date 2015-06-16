@@ -1,3 +1,11 @@
 // Place all the styles related to the pipeables controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+td.drop-cell {
+  border: 1px solid black
+}
+
+div.drag-cell {
+  background-color: #E6F5F5
+}

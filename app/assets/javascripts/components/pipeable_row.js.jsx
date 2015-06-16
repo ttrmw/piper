@@ -5,12 +5,12 @@ var PipeableRow = React.createClass({
     var row_state = this.props.state;
     return (
 
-      <tr className="pipeableRow">
+      <tr id={row_name} className="pipeableRow">
 
         {this.props.states.map(
           function(state) {
             return(
-              <td ref={state}> {state == row_state ? <PipeableCell id={row_id} state={row_state} name={row_name}/>: '' } </td>
+              <PipeableDropCell state={state} row_state={row_state} row_id={row_id} row_name={row_name}/>
             );
           }
         )}

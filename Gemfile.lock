@@ -1,3 +1,8 @@
+PATH
+  remote: ../../not_mwri_git/react-dnd-rails
+  specs:
+    react-dnd-rails (1.1.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -106,7 +111,6 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
-    react-dnd-rails (1.1.2)
     react-rails (1.0.0)
       coffee-script-source (~> 1.8)
       connection_pool
@@ -157,7 +161,7 @@ DEPENDENCIES
   jquery-rails
   mysql2
   rails (= 4.2.0)
-  react-dnd-rails
+  react-dnd-rails!
   react-rails (~> 1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
