@@ -33,7 +33,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 gem 'react-rails', '~> 1.0'
-gem 'react-dnd-rails', path: '../../not_mwri_git/react-dnd-rails'
+gem 'react_dnd_rails', path: '../../not_mwri_git/react_dnd_rails'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
@@ -43,5 +43,7 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'browserify-rails'
 end
 

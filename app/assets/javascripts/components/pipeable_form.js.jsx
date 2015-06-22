@@ -1,3 +1,4 @@
+var React = require('react');
 var PipeableForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();

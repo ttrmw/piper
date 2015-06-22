@@ -1,1 +1,1 @@
-//= require_tree ./components
+Pipeables = require('./components/Pipeables');

@@ -1,3 +1,4 @@
+var React = require('react');
 var PipeableDropCell = React.createClass({
   render: function() {
     var state = this.props.state;
@@ -14,6 +15,7 @@ var PipeableDropCell = React.createClass({
     )
   },
   handleDropCellClick: function(row_id, drop_cell_state, drag_cell_state) {
+    //drag_cell_state unused, but maybe we will want some kind of can drag rules
     $.ajax({
       url: 'pipeables/' + row_id,
       dataType: 'json',

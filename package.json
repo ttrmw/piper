@@ -1,0 +1,26 @@
+{
+  "name": "piper",
+  "version": "1.0.0",
+  "description": "Prototype sales pipeline application",
+  "main": "pipeables",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@dev-gitlab.mwri.loc:thomaswright/piper.git"
+  },
+  "author": "Thomas Millward Wright",
+  "license": "ISC",
+  "dependencies": {
+    "browserify": "^6.3.4",
+    "browserify-incremental": "^1.5.0"
+  },
+  "devDependencies": {
+    "react": "^0.12.0",
+    "react-tools": "^0.12.1"
+  }
+}

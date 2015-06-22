@@ -1,3 +1,4 @@
+var React = require('react');
 var PipeablesTable = React.createClass({
   render: function() {
     var states = this.props.states;

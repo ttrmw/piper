@@ -1,3 +1,4 @@
+var React = require('react');
 var PipeableRow = React.createClass({
   render: function() {
     var row_name = this.props.name;

@@ -1,3 +1,4 @@
+var React = require('react');
 var Pipeables = React.createClass({
 
   loadPipeablesFromServer: function() {
@@ -77,3 +78,6 @@ var Pipeables = React.createClass({
     );
   }
 });
+
+
+module.exports = Pipeables;

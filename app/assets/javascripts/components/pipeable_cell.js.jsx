@@ -1,3 +1,4 @@
+var React = require('react');
 var PipeableCell = React.createClass({
   render: function() {
     return(

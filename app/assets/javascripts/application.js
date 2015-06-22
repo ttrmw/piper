@@ -12,9 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
-//= require react
-//= require_tree ../../../vendor/assets/javascripts
 //= require react_ujs
 //= require components
 //= require_tree .
+//var ReactDnD = require('ReactDnD.min');
+
+
+global.React = require('react');
+require('pipeables');
