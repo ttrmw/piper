@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   get 'pipeables/states', to: 'pipeables#states'
   resources :pipeables
+  root to: 'pipeables#index'
 
-  root 'pipeables#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

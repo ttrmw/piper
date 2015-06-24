@@ -1,4 +1,5 @@
-var React = require('react');
+var DragDropContext = require('react-dnd').DragDropContext;
+var HTML5Backend = require('react-dnd/modules/backends/HTML5');
 var Pipeables = React.createClass({
 
   loadPipeablesFromServer: function() {
@@ -44,20 +45,6 @@ var Pipeables = React.createClass({
     });
   },
 
-  handlePipeableUpdateState: function(pipeable) {
-    $.ajax({
-      url: this.props.url,
-      dataType: 'json',
-      type: 'PATCH',
-      data: { pipeable: pipeable },
-      success: function(data) {
-        this.setState( { data: data } );
-      }.bind(this),
-      error: function(xhr, status, err ) {
-        console.error(this.props.url, status, err.toString());
-      }.bind(this)
-    })
-  },
 
   getInitialState: function() {
     return { states: [], data: [], currentDragItem: null };
@@ -66,7 +53,7 @@ var Pipeables = React.createClass({
   componentDidMount: function() {
     this.loadPipeablesFromServer();
     this.loadPipeableStatesFromServer();
-    setInterval(this.loadPipeablesFromServer, this.props.pollInterval);
+//    setInterval(this.loadPipeablesFromServer, this.props.pollInterval);
   },
 
   render: function() {
@@ -80,4 +67,4 @@ var Pipeables = React.createClass({
 });
 
 
-module.exports = Pipeables;
+module.exports = DragDropContext(HTML5Backend)(Pipeables);

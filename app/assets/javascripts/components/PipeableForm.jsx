@@ -1,4 +1,3 @@
-var React = require('react');
 var PipeableForm = React.createClass({
   handleSubmit: function(e) {
     e.preventDefault();
@@ -23,3 +22,5 @@ var PipeableForm = React.createClass({
     );
   }
 });
+
+module.exports = PipeableForm;

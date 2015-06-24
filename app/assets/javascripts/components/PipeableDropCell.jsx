@@ -1,29 +1,45 @@
-var React = require('react');
+var PropTypes = React.PropTypes;
+var DropTarget = require('react-dnd').DropTarget;
+
+var dropTarget = {
+  drop: function(props, monitor, component) {
+    if (monitor.getItem().row_id == props.row_id ) {
+      component.props.dropHandler( props.state );
+    }
+  }
+};
+
+function collect(connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  }
+};
+
 var PipeableDropCell = React.createClass({
+  propTypes: {
+    isOver: PropTypes.bool.isRequired
+  },
+
+  getInitialState() {
+    return { row_state: this.props.state };
+  },
+
   render: function() {
-    var state = this.props.state;
+    var connectDropTarget = this.props.connectDropTarget;
+    var state = this.state.row_state;
     var row_state = this.props.row_state;
     var row_id = this.props.row_id;
     var row_name = this.props.row_name;
 
-    return (
-      <td className="pipeable drop-cell" ref={state} onClick={this.handleDropCellClick.bind(this, row_id, state, row_state)}>
+    return connectDropTarget(
+      <td className="pipeable drop-cell">
         {state == row_state ?
-          <PipeableCell className="pipeable drag-cell" id={row_id} name={row_name}/>
+          <PipeableDragCell className="pipeable drag-cell" id={row_id} name={row_name}/>
         : '' }
      </td>
     )
-  },
-  handleDropCellClick: function(row_id, drop_cell_state, drag_cell_state) {
-    //drag_cell_state unused, but maybe we will want some kind of can drag rules
-    $.ajax({
-      url: 'pipeables/' + row_id,
-      dataType: 'json',
-      type: 'PATCH',
-      data: { pipeable: { state: drop_cell_state } },
-      success: function(data) {
-        this.setState( { data: data } );
-      }.bind(this)
-    });
   }
 });
+
+module.exports = DropTarget('DRAGCELL', dropTarget, collect)(PipeableDropCell);
