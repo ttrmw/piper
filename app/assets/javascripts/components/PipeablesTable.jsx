@@ -11,13 +11,12 @@ var PipeablesTable = React.createClass({
 
     return (
       <div>
-        <h2>Pipeables</h2>
         <table className="pipeables" states={states}>
           <tr>
             {states.map(
               function(state) {
                 return(
-                  <td><h3>{state}</h3></td>
+                  <td className="header"><h3>{state}</h3></td>
                 )
               }
             )}
