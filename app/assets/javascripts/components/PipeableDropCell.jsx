@@ -3,9 +3,10 @@ var DropTarget = require('react-dnd').DropTarget;
 
 var dropTarget = {
   drop: function(props, monitor, component) {
-    if (monitor.getItem().row_id == props.row_id ) {
-      component.props.dropHandler( props.state );
-    }
+    component.props.dropHandler( props.state );
+  },
+  canDrop: function(props, monitor){
+    return (monitor.getItem().row_id == props.row_id );
   }
 };
 
