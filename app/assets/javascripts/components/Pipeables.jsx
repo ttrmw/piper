@@ -58,7 +58,7 @@ var Pipeables = React.createClass({
 
   render: function() {
     return (
-      <div class="pipeables">
+      <div className="pipeables">
         <PipeableForm onPipeableSubmit={this.handlePipeableSubmit} />
         <PipeablesTable data={this.state.data} states={this.state.states} />
       </div>

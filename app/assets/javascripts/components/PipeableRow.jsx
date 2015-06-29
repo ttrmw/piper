@@ -23,9 +23,9 @@ var PipeableRow = React.createClass({
       <tr id={row_name} className="pipeableRow">
 
         {this.props.states.map(
-          function(state) {
+          function(state, index) {
             return(
-              <PipeableDropCell state={state} row_state={row_state} row_id={row_id} row_name={row_name} dropHandler={handle_drop}/>
+              <PipeableDropCell key={index} state={state} row_state={row_state} row_id={row_id} row_name={row_name} dropHandler={handle_drop}/>
 
             );
           }
